@@ -31,7 +31,7 @@ const PROFILE = {
   wallet: "0x8f3a...b21c",
   social: {
     github: "https://github.com/Hirusha1-cpu",
-    linkedin: "www.linkedin.com/in/hirusha-fernando-15020b1ab",
+    linkedin: "https://linkedin.com/in/hirusha-fernando-15020b1ab",
     twitter: "https://x.com/HirushaFernand5",
   },
 };
