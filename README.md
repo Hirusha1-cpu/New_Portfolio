@@ -55,7 +55,7 @@ function Avatar({ size = 128 }) {
   return (
     <img
       src="/profile.jpg"
-      alt="Your name"
+      alt="Hirusha Fernando"
       className="rounded-2xl border border-slate-700 object-cover shrink-0"
       style={{ width: size, height: size }}
     />

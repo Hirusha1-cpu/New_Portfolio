@@ -30,9 +30,9 @@ const PROFILE = {
   email: "hello@yourdomain.dev",
   wallet: "0x8f3a...b21c",
   social: {
-    github: "https://github.com/yourhandle",
-    linkedin: "https://linkedin.com/in/yourhandle",
-    twitter: "https://twitter.com/yourhandle",
+    github: "https://github.com/Hirusha1-cpu",
+    linkedin: "www.linkedin.com/in/hirusha-fernando-15020b1ab",
+    twitter: "https://x.com/HirushaFernand5",
   },
 };
 
