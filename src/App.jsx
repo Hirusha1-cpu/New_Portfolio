@@ -564,76 +564,98 @@ export default function App() {
         <main className="lg:pl-40 pt-20 lg:pt-0">
           {/* ---------------- HOME ---------------- */}
           <section
-            id="home"
-            ref={registerRef("home")}
-            className="min-h-screen flex items-center px-6 lg:px-16 py-24"
+  id="home"
+  ref={registerRef("home")}
+  className="min-h-screen flex items-center px-6 lg:px-16 py-24"
+>
+  <div className="max-w-6xl mx-auto lg:mx-0 w-full">
+    <div className="flex items-center gap-2 mb-8 font-mono text-xs text-slate-500">
+      <span className="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulseGlow" />
+      Available for new contracts
+    </div>
+
+    <div className="flex flex-col-reverse lg:flex-row items-center gap-12 mb-10">
+      {/* Left side - Text content */}
+      <div className="flex-1">
+        <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-semibold text-slate-50 leading-tight mb-4">
+          {PROFILE.name}
+        </h1>
+        <p className="font-mono text-amber-400 text-sm tracking-wide mb-1">
+          {PROFILE.role}
+        </p>
+        <p className="text-slate-500 text-sm mb-6">
+          {PROFILE.location}
+        </p>
+
+        <p className="text-lg text-slate-300 leading-relaxed max-w-xl mb-10">
+          {PROFILE.tagline}
+        </p>
+
+        <div className="flex flex-wrap items-center gap-4">
+          <button
+            onClick={() => scrollTo("projects")}
+            className="inline-flex items-center gap-2 bg-amber-400 text-slate-950 font-medium text-sm px-5 py-3 rounded-xl hover:bg-amber-300 transition-colors"
           >
-            <div className="max-w-6xl mx-auto lg:mx-0 w-full">
-              <div className="flex items-center gap-2 mb-8 font-mono text-xs text-slate-500">
-                <span className="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulseGlow" />
-                Available for new contracts
-              </div>
+            View projects <ChevronRight size={16} />
+          </button>
+          
+          {/* NEW: CV Download Button */}
+          <button
+            onClick={() => {
+              // CV එක download කරන්න
+              const link = document.createElement('a');
+              link.href = '/Hirusha Fernando Full Stack Software Engineer.pdf'; // ඔබගේ CV file එකේ path එක
+              link.download = 'Hirusha_Fernando_CV.pdf';
+              document.body.appendChild(link);
+              link.click();
+              document.body.removeChild(link);
+            }}
+            className="inline-flex items-center gap-2 border border-slate-700 text-slate-200 font-medium text-sm px-5 py-3 rounded-xl hover:border-slate-500 transition-colors"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            Download CV
+          </button>
+          
+          <button
+            onClick={() => scrollTo("contact")}
+            className="inline-flex items-center gap-2 border border-slate-700 text-slate-200 font-medium text-sm px-5 py-3 rounded-xl hover:border-slate-500 transition-colors"
+          >
+            Get in touch
+          </button>
+          <div className="flex items-center gap-3 ml-1">
+            <a
+              href={PROFILE.social.github}
+              className="text-slate-500 hover:text-slate-200 transition-colors"
+            >
+              <Github size={18} />
+            </a>
+            <a
+              href={PROFILE.social.linkedin}
+              className="text-slate-500 hover:text-slate-200 transition-colors"
+            >
+              <Linkedin size={18} />
+            </a>
+            <a
+              href={PROFILE.social.twitter}
+              className="text-slate-500 hover:text-slate-200 transition-colors"
+            >
+              <Twitter size={18} />
+            </a>
+          </div>
+        </div>
+      </div>
 
-              <div className="flex flex-col-reverse lg:flex-row items-center gap-12 mb-10">
-                {/* Left side - Text content */}
-                <div className="flex-1">
-                  <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-semibold text-slate-50 leading-tight mb-4">
-                    {PROFILE.name}
-                  </h1>
-                  <p className="font-mono text-amber-400 text-sm tracking-wide mb-1">
-                    {PROFILE.role}
-                  </p>
-                  <p className="text-slate-500 text-sm mb-6">
-                    {PROFILE.location}
-                  </p>
-
-                  <p className="text-lg text-slate-300 leading-relaxed max-w-xl mb-10">
-                    {PROFILE.tagline}
-                  </p>
-
-                  <div className="flex flex-wrap items-center gap-4">
-                    <button
-                      onClick={() => scrollTo("projects")}
-                      className="inline-flex items-center gap-2 bg-amber-400 text-slate-950 font-medium text-sm px-5 py-3 rounded-xl hover:bg-amber-300 transition-colors"
-                    >
-                      View projects <ChevronRight size={16} />
-                    </button>
-                    <button
-                      onClick={() => scrollTo("contact")}
-                      className="inline-flex items-center gap-2 border border-slate-700 text-slate-200 font-medium text-sm px-5 py-3 rounded-xl hover:border-slate-500 transition-colors"
-                    >
-                      Get in touch
-                    </button>
-                    <div className="flex items-center gap-3 ml-1">
-                      <a
-                        href={PROFILE.social.github}
-                        className="text-slate-500 hover:text-slate-200 transition-colors"
-                      >
-                        <Github size={18} />
-                      </a>
-                      <a
-                        href={PROFILE.social.linkedin}
-                        className="text-slate-500 hover:text-slate-200 transition-colors"
-                      >
-                        <Linkedin size={18} />
-                      </a>
-                      <a
-                        href={PROFILE.social.twitter}
-                        className="text-slate-500 hover:text-slate-200 transition-colors"
-                      >
-                        <Twitter size={18} />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Right side - Large floating image */}
-                <div className="flex-shrink-0 animate-float">
-                  <Avatar size={400} />
-                </div>
-              </div>
-            </div>
-          </section>
+      {/* Right side - Large floating image */}
+      <div className="flex-shrink-0 animate-float">
+        <Avatar size={400} />
+      </div>
+    </div>
+  </div>
+</section>
 
           {/* ---------------- ABOUT ---------------- */}
           <section
