@@ -23,7 +23,7 @@ import {
 
 const PROFILE = {
   name: "Hirusha Fernando",
-  role: "Blockchain Developer",
+  role: "Developer",
   tagline:
     "I design and ship smart contracts and Web3 infrastructure — from protocol logic to production-grade security.",
   location: "Colombo, Sri Lanka",
