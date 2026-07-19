@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import BlockchainBackground from "./components/BlockchainBackground.jsx";
 import {
   Github,
   Linkedin,
@@ -158,7 +159,22 @@ const COVER_TEXT = {
 /* -------------------------------------------------------------------- */
 
 function Avatar({ size = 128 }) {
-  // Placeholder avatar. Replace with your own photo — see README for how.
+  // Put your photo at public/profile.jpg (or .png) — this reads it from there.
+  // If the file is missing, it automatically falls back to the node graphic below.
+  const [broken, setBroken] = useState(false);
+
+  if (!broken) {
+    return (
+      <img
+        src="/profile.jpg"
+        alt={PROFILE.name}
+        onError={() => setBroken(true)}
+        className="shrink-0 rounded-2xl border border-slate-700 object-cover"
+        style={{ width: size, height: size }}
+      />
+    );
+  }
+
   return (
     <div
       className="relative shrink-0 rounded-2xl border border-slate-700 bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center overflow-hidden"
@@ -506,15 +522,21 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-200 font-sans selection:bg-amber-400/30">
-      <ChainNav
-        active={active}
-        onNavigate={scrollTo}
-        mobileOpen={mobileOpen}
-        setMobileOpen={setMobileOpen}
-      />
+    <div className="min-h-screen bg-slate-950 text-slate-200 font-sans selection:bg-amber-400/30 relative">
+      <BlockchainBackground />
 
-      <main className="lg:pl-40 pt-20 lg:pt-0">
+      {/* subtle vignette so text stays readable over the 3D network */}
+      <div className="fixed inset-0 z-0 bg-gradient-to-b from-slate-950/40 via-slate-950/70 to-slate-950/90 pointer-events-none" />
+
+      <div className="relative z-10">
+        <ChainNav
+          active={active}
+          onNavigate={scrollTo}
+          mobileOpen={mobileOpen}
+          setMobileOpen={setMobileOpen}
+        />
+
+        <main className="lg:pl-40 pt-20 lg:pt-0">
         {/* ---------------- HOME ---------------- */}
         <section
           id="home"
@@ -726,9 +748,10 @@ export default function App() {
             © {new Date().getFullYear()} {PROFILE.name} — built block by block.
           </p>
         </footer>
-      </main>
+        </main>
 
-      <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
+        <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
+      </div>
     </div>
   );
 }
