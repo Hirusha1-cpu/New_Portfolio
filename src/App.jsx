@@ -272,7 +272,9 @@ function ChainNav({ active, onNavigate, mobileOpen, setMobileOpen }) {
                 >
                   <span
                     className={`w-2 h-2 rounded-full transition-colors ${
-                      isActive ? "bg-amber-400 animate-pulseGlow" : "bg-slate-600 group-hover:bg-slate-400"
+                      isActive
+                        ? "bg-amber-400 animate-pulseGlow"
+                        : "bg-slate-600 group-hover:bg-slate-400"
                     }`}
                   />
                 </span>
@@ -343,7 +345,9 @@ function ProjectCard({ project, onOpen }) {
       className={`group text-left rounded-2xl border bg-gradient-to-b p-6 transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-black/30 ${COVER_STYLES[project.cover]}`}
     >
       <div className="flex items-start justify-between mb-8">
-        <span className={`font-mono text-xs tracking-widest ${COVER_TEXT[project.cover]}`}>
+        <span
+          className={`font-mono text-xs tracking-widest ${COVER_TEXT[project.cover]}`}
+        >
           #{project.id}
         </span>
         <ChevronRight
@@ -354,7 +358,9 @@ function ProjectCard({ project, onOpen }) {
       <h3 className="font-display text-xl font-semibold text-slate-100 mb-2">
         {project.title}
       </h3>
-      <p className="text-sm text-slate-400 leading-relaxed mb-6">{project.tagline}</p>
+      <p className="text-sm text-slate-400 leading-relaxed mb-6">
+        {project.tagline}
+      </p>
       <div className="flex flex-wrap gap-2">
         {project.tech.slice(0, 3).map((t) => (
           <span
@@ -393,9 +399,13 @@ function ProjectModal({ project, onClose }) {
         onClick={(e) => e.stopPropagation()}
         className="w-full max-w-2xl max-h-[85vh] overflow-y-auto rounded-2xl border border-slate-800 bg-slate-900 shadow-2xl"
       >
-        <div className={`p-6 border-b border-slate-800 bg-gradient-to-b ${COVER_STYLES[project.cover]}`}>
+        <div
+          className={`p-6 border-b border-slate-800 bg-gradient-to-b ${COVER_STYLES[project.cover]}`}
+        >
           <div className="flex items-start justify-between mb-6">
-            <span className={`font-mono text-xs tracking-widest ${COVER_TEXT[project.cover]}`}>
+            <span
+              className={`font-mono text-xs tracking-widest ${COVER_TEXT[project.cover]}`}
+            >
               BLOCK #{project.id}
             </span>
             <button
@@ -413,7 +423,9 @@ function ProjectModal({ project, onClose }) {
           <div className="flex gap-6 mt-6">
             {project.stats.map((s) => (
               <div key={s.label}>
-                <div className={`font-mono text-lg font-semibold ${COVER_TEXT[project.cover]}`}>
+                <div
+                  className={`font-mono text-lg font-semibold ${COVER_TEXT[project.cover]}`}
+                >
                   {s.value}
                 </div>
                 <div className="text-[11px] text-slate-500 uppercase tracking-wide">
@@ -443,9 +455,13 @@ function ProjectModal({ project, onClose }) {
         <div className="p-6">
           {tab === "overview" && (
             <div>
-              <p className="text-sm text-slate-300 leading-relaxed mb-4">{project.overview}</p>
+              <p className="text-sm text-slate-300 leading-relaxed mb-4">
+                {project.overview}
+              </p>
               <div className="rounded-xl border border-slate-800 bg-slate-950/60 p-4 flex items-center justify-between">
-                <span className="text-xs text-slate-500 font-mono">Live preview / demo</span>
+                <span className="text-xs text-slate-500 font-mono">
+                  Live preview / demo
+                </span>
                 <a
                   href="#"
                   onClick={(e) => e.preventDefault()}
@@ -462,13 +478,17 @@ function ProjectModal({ project, onClose }) {
                 <h4 className="text-xs uppercase tracking-wide text-slate-500 mb-2">
                   The problem
                 </h4>
-                <p className="text-sm text-slate-300 leading-relaxed">{project.problem}</p>
+                <p className="text-sm text-slate-300 leading-relaxed">
+                  {project.problem}
+                </p>
               </div>
               <div>
                 <h4 className="text-xs uppercase tracking-wide text-slate-500 mb-2">
                   What I built
                 </h4>
-                <p className="text-sm text-slate-300 leading-relaxed">{project.solution}</p>
+                <p className="text-sm text-slate-300 leading-relaxed">
+                  {project.solution}
+                </p>
               </div>
             </div>
           )}
@@ -507,9 +527,11 @@ export default function App() {
           if (entry.isIntersecting) setActive(entry.target.id);
         });
       },
-      { rootMargin: "-40% 0px -55% 0px", threshold: 0 }
+      { rootMargin: "-40% 0px -55% 0px", threshold: 0 },
     );
-    Object.values(sectionRefs.current).forEach((el) => el && observer.observe(el));
+    Object.values(sectionRefs.current).forEach(
+      (el) => el && observer.observe(el),
+    );
     return () => observer.disconnect();
   }, []);
 
@@ -518,7 +540,10 @@ export default function App() {
   };
 
   const scrollTo = (id) => {
-    sectionRefs.current[id]?.scrollIntoView({ behavior: "smooth", block: "start" });
+    sectionRefs.current[id]?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
   };
 
   return (
@@ -537,220 +562,261 @@ export default function App() {
         />
 
         <main className="lg:pl-40 pt-20 lg:pt-0">
-        {/* ---------------- HOME ---------------- */}
-        <section
-          id="home"
-          ref={registerRef("home")}
-          className="min-h-screen flex items-center px-6 lg:px-16 py-24"
-        >
-          <div className="max-w-3xl mx-auto lg:mx-0 w-full">
-            <div className="flex items-center gap-2 mb-8 font-mono text-xs text-slate-500">
-              <span className="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulseGlow" />
-              Available for new contracts
-            </div>
-
-            <div className="flex flex-col-reverse sm:flex-row sm:items-center gap-8 mb-10">
-              <div>
-                <h1 className="font-display text-4xl sm:text-5xl font-semibold text-slate-50 leading-tight mb-4">
-                  {PROFILE.name}
-                </h1>
-                <p className="font-mono text-amber-400 text-sm tracking-wide mb-1">
-                  {PROFILE.role}
-                </p>
-                <p className="text-slate-500 text-sm">{PROFILE.location}</p>
+          {/* ---------------- HOME ---------------- */}
+          <section
+            id="home"
+            ref={registerRef("home")}
+            className="min-h-screen flex items-center px-6 lg:px-16 py-24"
+          >
+            <div className="max-w-6xl mx-auto lg:mx-0 w-full">
+              <div className="flex items-center gap-2 mb-8 font-mono text-xs text-slate-500">
+                <span className="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulseGlow" />
+                Available for new contracts
               </div>
-              <Avatar size={112} />
-            </div>
 
-            <p className="text-lg text-slate-300 leading-relaxed max-w-xl mb-10">
-              {PROFILE.tagline}
-            </p>
+              <div className="flex flex-col-reverse lg:flex-row items-center gap-12 mb-10">
+                {/* Left side - Text content */}
+                <div className="flex-1">
+                  <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-semibold text-slate-50 leading-tight mb-4">
+                    {PROFILE.name}
+                  </h1>
+                  <p className="font-mono text-amber-400 text-sm tracking-wide mb-1">
+                    {PROFILE.role}
+                  </p>
+                  <p className="text-slate-500 text-sm mb-6">
+                    {PROFILE.location}
+                  </p>
 
-            <div className="flex flex-wrap items-center gap-4">
-              <button
-                onClick={() => scrollTo("projects")}
-                className="inline-flex items-center gap-2 bg-amber-400 text-slate-950 font-medium text-sm px-5 py-3 rounded-xl hover:bg-amber-300 transition-colors"
-              >
-                View projects <ChevronRight size={16} />
-              </button>
-              <button
-                onClick={() => scrollTo("contact")}
-                className="inline-flex items-center gap-2 border border-slate-700 text-slate-200 font-medium text-sm px-5 py-3 rounded-xl hover:border-slate-500 transition-colors"
-              >
-                Get in touch
-              </button>
-              <div className="flex items-center gap-3 ml-1">
-                <a href={PROFILE.social.github} className="text-slate-500 hover:text-slate-200 transition-colors">
-                  <Github size={18} />
-                </a>
-                <a href={PROFILE.social.linkedin} className="text-slate-500 hover:text-slate-200 transition-colors">
-                  <Linkedin size={18} />
-                </a>
-                <a href={PROFILE.social.twitter} className="text-slate-500 hover:text-slate-200 transition-colors">
-                  <Twitter size={18} />
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
+                  <p className="text-lg text-slate-300 leading-relaxed max-w-xl mb-10">
+                    {PROFILE.tagline}
+                  </p>
 
-        {/* ---------------- ABOUT ---------------- */}
-        <section
-          id="about"
-          ref={registerRef("about")}
-          className="min-h-screen flex items-center px-6 lg:px-16 py-24 border-t border-slate-900"
-        >
-          <div className="max-w-3xl mx-auto lg:mx-0 w-full">
-            <SectionEyebrow index="02">About</SectionEyebrow>
-            <h2 className="font-display text-3xl font-semibold text-slate-50 mb-6">
-              Building things that hold value on their own
-            </h2>
-            <div className="space-y-4 text-slate-300 leading-relaxed mb-12 max-w-2xl">
-              <p>
-                I'm a blockchain developer focused on smart-contract engineering and
-                Web3 infrastructure. My work sits at the layer where a bug isn't just
-                a bug — it's real money, so I write code the way I'd want it written
-                if I were the one with funds at stake.
-              </p>
-              <p>
-                Over the last four years I've shipped lending protocols, NFT
-                marketplaces, cross-chain bridges, and DAO tooling — taking each one
-                from a whiteboard idea through audits to mainnet. I care as much about
-                gas efficiency and test coverage as I do about the product actually
-                being useful to the people who show up on day one.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
-              {STATS.map((stat) => (
-                <div key={stat.label} className="border-l border-slate-800 pl-4">
-                  <div className="font-display text-2xl font-semibold text-amber-400 mb-1">
-                    {stat.value}
+                  <div className="flex flex-wrap items-center gap-4">
+                    <button
+                      onClick={() => scrollTo("projects")}
+                      className="inline-flex items-center gap-2 bg-amber-400 text-slate-950 font-medium text-sm px-5 py-3 rounded-xl hover:bg-amber-300 transition-colors"
+                    >
+                      View projects <ChevronRight size={16} />
+                    </button>
+                    <button
+                      onClick={() => scrollTo("contact")}
+                      className="inline-flex items-center gap-2 border border-slate-700 text-slate-200 font-medium text-sm px-5 py-3 rounded-xl hover:border-slate-500 transition-colors"
+                    >
+                      Get in touch
+                    </button>
+                    <div className="flex items-center gap-3 ml-1">
+                      <a
+                        href={PROFILE.social.github}
+                        className="text-slate-500 hover:text-slate-200 transition-colors"
+                      >
+                        <Github size={18} />
+                      </a>
+                      <a
+                        href={PROFILE.social.linkedin}
+                        className="text-slate-500 hover:text-slate-200 transition-colors"
+                      >
+                        <Linkedin size={18} />
+                      </a>
+                      <a
+                        href={PROFILE.social.twitter}
+                        className="text-slate-500 hover:text-slate-200 transition-colors"
+                      >
+                        <Twitter size={18} />
+                      </a>
+                    </div>
                   </div>
-                  <div className="text-xs text-slate-500 leading-snug">{stat.label}</div>
                 </div>
-              ))}
+
+                {/* Right side - Large floating image */}
+                <div className="flex-shrink-0 animate-float">
+                  <Avatar size={400} />
+                </div>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* ---------------- SKILLS ---------------- */}
-        <section
-          id="skills"
-          ref={registerRef("skills")}
-          className="min-h-screen flex items-center px-6 lg:px-16 py-24 border-t border-slate-900"
-        >
-          <div className="max-w-4xl mx-auto lg:mx-0 w-full">
-            <SectionEyebrow index="03">Skills</SectionEyebrow>
-            <h2 className="font-display text-3xl font-semibold text-slate-50 mb-12">
-              The stack I build with
-            </h2>
+          {/* ---------------- ABOUT ---------------- */}
+          <section
+            id="about"
+            ref={registerRef("about")}
+            className="min-h-screen flex items-center px-6 lg:px-16 py-24 border-t border-slate-900"
+          >
+            <div className="max-w-3xl mx-auto lg:mx-0 w-full">
+              <SectionEyebrow index="02">About</SectionEyebrow>
+              <h2 className="font-display text-3xl font-semibold text-slate-50 mb-6">
+                Building things that hold value on their own
+              </h2>
+              <div className="space-y-4 text-slate-300 leading-relaxed mb-12 max-w-2xl">
+                <p>
+                  I'm a blockchain developer focused on smart-contract
+                  engineering and Web3 infrastructure. My work sits at the layer
+                  where a bug isn't just a bug — it's real money, so I write
+                  code the way I'd want it written if I were the one with funds
+                  at stake.
+                </p>
+                <p>
+                  Over the last four years I've shipped lending protocols, NFT
+                  marketplaces, cross-chain bridges, and DAO tooling — taking
+                  each one from a whiteboard idea through audits to mainnet. I
+                  care as much about gas efficiency and test coverage as I do
+                  about the product actually being useful to the people who show
+                  up on day one.
+                </p>
+              </div>
 
-            <div className="grid sm:grid-cols-2 gap-6">
-              {SKILLS.map((group) => {
-                const Icon = group.icon;
-                return (
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
+                {STATS.map((stat) => (
                   <div
-                    key={group.group}
-                    className="rounded-2xl border border-slate-800 bg-slate-900/50 p-6"
+                    key={stat.label}
+                    className="border-l border-slate-800 pl-4"
                   >
-                    <div className="flex items-center gap-2.5 mb-5">
-                      <Icon size={16} className="text-amber-400" />
-                      <h3 className="text-sm font-medium text-slate-200 tracking-wide">
-                        {group.group}
-                      </h3>
+                    <div className="font-display text-2xl font-semibold text-amber-400 mb-1">
+                      {stat.value}
                     </div>
-                    <div className="flex flex-wrap gap-2">
-                      {group.items.map((item) => (
-                        <span
-                          key={item}
-                          className="text-xs font-mono px-2.5 py-1.5 rounded-lg bg-slate-950 border border-slate-800 text-slate-300"
-                        >
-                          {item}
-                        </span>
-                      ))}
+                    <div className="text-xs text-slate-500 leading-snug">
+                      {stat.label}
                     </div>
                   </div>
-                );
-              })}
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* ---------------- PROJECTS ---------------- */}
-        <section
-          id="projects"
-          ref={registerRef("projects")}
-          className="min-h-screen flex items-center px-6 lg:px-16 py-24 border-t border-slate-900"
-        >
-          <div className="max-w-5xl mx-auto lg:mx-0 w-full">
-            <SectionEyebrow index="04">Projects</SectionEyebrow>
-            <div className="flex items-end justify-between mb-12 flex-wrap gap-3">
-              <h2 className="font-display text-3xl font-semibold text-slate-50">
-                Four blocks, four problems solved
+          {/* ---------------- SKILLS ---------------- */}
+          <section
+            id="skills"
+            ref={registerRef("skills")}
+            className="min-h-screen flex items-center px-6 lg:px-16 py-24 border-t border-slate-900"
+          >
+            <div className="max-w-4xl mx-auto lg:mx-0 w-full">
+              <SectionEyebrow index="03">Skills</SectionEyebrow>
+              <h2 className="font-display text-3xl font-semibold text-slate-50 mb-12">
+                The stack I build with
               </h2>
-              <p className="text-sm text-slate-500 max-w-xs">
-                Tap a card to see the preview, the problem it solves, and the
-                technology behind it.
+
+              <div className="grid sm:grid-cols-2 gap-6">
+                {SKILLS.map((group) => {
+                  const Icon = group.icon;
+                  return (
+                    <div
+                      key={group.group}
+                      className="rounded-2xl border border-slate-800 bg-slate-900/50 p-6"
+                    >
+                      <div className="flex items-center gap-2.5 mb-5">
+                        <Icon size={16} className="text-amber-400" />
+                        <h3 className="text-sm font-medium text-slate-200 tracking-wide">
+                          {group.group}
+                        </h3>
+                      </div>
+                      <div className="flex flex-wrap gap-2">
+                        {group.items.map((item) => (
+                          <span
+                            key={item}
+                            className="text-xs font-mono px-2.5 py-1.5 rounded-lg bg-slate-950 border border-slate-800 text-slate-300"
+                          >
+                            {item}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </section>
+
+          {/* ---------------- PROJECTS ---------------- */}
+          <section
+            id="projects"
+            ref={registerRef("projects")}
+            className="min-h-screen flex items-center px-6 lg:px-16 py-24 border-t border-slate-900"
+          >
+            <div className="max-w-5xl mx-auto lg:mx-0 w-full">
+              <SectionEyebrow index="04">Projects</SectionEyebrow>
+              <div className="flex items-end justify-between mb-12 flex-wrap gap-3">
+                <h2 className="font-display text-3xl font-semibold text-slate-50">
+                  Four blocks, four problems solved
+                </h2>
+                <p className="text-sm text-slate-500 max-w-xs">
+                  Tap a card to see the preview, the problem it solves, and the
+                  technology behind it.
+                </p>
+              </div>
+
+              <div className="grid sm:grid-cols-2 gap-5">
+                {PROJECTS.map((project) => (
+                  <ProjectCard
+                    key={project.id}
+                    project={project}
+                    onOpen={setSelectedProject}
+                  />
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* ---------------- CONTACT ---------------- */}
+          <section
+            id="contact"
+            ref={registerRef("contact")}
+            className="min-h-screen flex items-center px-6 lg:px-16 py-24 border-t border-slate-900"
+          >
+            <div className="max-w-3xl mx-auto lg:mx-0 w-full">
+              <SectionEyebrow index="05">Contact</SectionEyebrow>
+              <h2 className="font-display text-3xl font-semibold text-slate-50 mb-4">
+                Let's build something that lasts on-chain
+              </h2>
+              <p className="text-slate-400 leading-relaxed mb-10 max-w-xl">
+                Open to smart-contract audits, protocol engineering, and
+                full-time or contract roles. The fastest way to reach me is
+                email.
               </p>
-            </div>
 
-            <div className="grid sm:grid-cols-2 gap-5">
-              {PROJECTS.map((project) => (
-                <ProjectCard key={project.id} project={project} onOpen={setSelectedProject} />
-              ))}
-            </div>
-          </div>
-        </section>
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-10">
+                <a
+                  href={`mailto:${PROFILE.email}`}
+                  className="inline-flex items-center gap-2 bg-amber-400 text-slate-950 font-medium text-sm px-5 py-3 rounded-xl hover:bg-amber-300 transition-colors w-fit"
+                >
+                  <Mail size={16} /> {PROFILE.email}
+                </a>
+                <CopyableAddress value={PROFILE.wallet} />
+              </div>
 
-        {/* ---------------- CONTACT ---------------- */}
-        <section
-          id="contact"
-          ref={registerRef("contact")}
-          className="min-h-screen flex items-center px-6 lg:px-16 py-24 border-t border-slate-900"
-        >
-          <div className="max-w-3xl mx-auto lg:mx-0 w-full">
-            <SectionEyebrow index="05">Contact</SectionEyebrow>
-            <h2 className="font-display text-3xl font-semibold text-slate-50 mb-4">
-              Let's build something that lasts on-chain
-            </h2>
-            <p className="text-slate-400 leading-relaxed mb-10 max-w-xl">
-              Open to smart-contract audits, protocol engineering, and full-time or
-              contract roles. The fastest way to reach me is email.
+              <div className="flex items-center gap-5 border-t border-slate-900 pt-8">
+                <a
+                  href={PROFILE.social.github}
+                  className="flex items-center gap-2 text-sm text-slate-400 hover:text-slate-100 transition-colors"
+                >
+                  <Github size={16} /> GitHub
+                </a>
+                <a
+                  href={PROFILE.social.linkedin}
+                  className="flex items-center gap-2 text-sm text-slate-400 hover:text-slate-100 transition-colors"
+                >
+                  <Linkedin size={16} /> LinkedIn
+                </a>
+                <a
+                  href={PROFILE.social.twitter}
+                  className="flex items-center gap-2 text-sm text-slate-400 hover:text-slate-100 transition-colors"
+                >
+                  <Twitter size={16} /> Twitter
+                </a>
+              </div>
+            </div>
+          </section>
+
+          <footer className="px-6 lg:px-16 py-8 border-t border-slate-900">
+            <p className="text-xs text-slate-600 font-mono">
+              © {new Date().getFullYear()} {PROFILE.name} — built block by
+              block.
             </p>
-
-            <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-10">
-              <a
-                href={`mailto:${PROFILE.email}`}
-                className="inline-flex items-center gap-2 bg-amber-400 text-slate-950 font-medium text-sm px-5 py-3 rounded-xl hover:bg-amber-300 transition-colors w-fit"
-              >
-                <Mail size={16} /> {PROFILE.email}
-              </a>
-              <CopyableAddress value={PROFILE.wallet} />
-            </div>
-
-            <div className="flex items-center gap-5 border-t border-slate-900 pt-8">
-              <a href={PROFILE.social.github} className="flex items-center gap-2 text-sm text-slate-400 hover:text-slate-100 transition-colors">
-                <Github size={16} /> GitHub
-              </a>
-              <a href={PROFILE.social.linkedin} className="flex items-center gap-2 text-sm text-slate-400 hover:text-slate-100 transition-colors">
-                <Linkedin size={16} /> LinkedIn
-              </a>
-              <a href={PROFILE.social.twitter} className="flex items-center gap-2 text-sm text-slate-400 hover:text-slate-100 transition-colors">
-                <Twitter size={16} /> Twitter
-              </a>
-            </div>
-          </div>
-        </section>
-
-        <footer className="px-6 lg:px-16 py-8 border-t border-slate-900">
-          <p className="text-xs text-slate-600 font-mono">
-            © {new Date().getFullYear()} {PROFILE.name} — built block by block.
-          </p>
-        </footer>
+          </footer>
         </main>
 
-        <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
+        <ProjectModal
+          project={selectedProject}
+          onClose={() => setSelectedProject(null)}
+        />
       </div>
     </div>
   );

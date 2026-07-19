@@ -17,10 +17,15 @@ export default {
           '0%': { opacity: 0, transform: 'translateY(16px)' },
           '100%': { opacity: 1, transform: 'translateY(0)' },
         },
+        float: {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-15px)' },
+        },
       },
       animation: {
         pulseGlow: 'pulseGlow 2s ease-in-out infinite',
         blockIn: 'blockIn 0.6s ease-out both',
+        float:'float 4s ease-in-out infinite'
       },
     },
   },
