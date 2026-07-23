@@ -110,6 +110,7 @@ const PROJECTS = [
       { label: "Collateral Asset", value: "WETH" },
       { label: "Borrow Asset", value: "USDC" },
     ],
+    demoUrl: "https://decentralised-lending-protocol.vercel.app/",
   },
 
   {
@@ -135,6 +136,7 @@ const PROJECTS = [
       { label: "Test Coverage", value: "95%+" },
       { label: "Network", value: "Ethereum Sepolia" },
     ],
+    demoUrl: "https://decentralised-milestone-payment-sys-sigma.vercel.app/",
   },
 
   {
@@ -160,9 +162,9 @@ const PROJECTS = [
       { label: "Settlement Token", value: "USDC" },
       { label: "Supported Currencies", value: "4" },
     ],
+    demoUrl: "https://cross-border-payments-ten.vercel.app/",
   },
 ];
-
 const NAV = [
   { id: "home", label: "Home", index: "01" },
   { id: "about", label: "About", index: "02" },
@@ -408,10 +410,12 @@ function ProjectCard({ project, onOpen }) {
 
 function ProjectModal({ project, onClose }) {
   const [tab, setTab] = useState("overview");
+  const [isLoading, setIsLoading] = useState(true);
   if (!project) return null;
 
   const tabs = [
     { id: "overview", label: "Overview" },
+    { id: "preview", label: "Live Preview" },
     { id: "problem", label: "Problem" },
     { id: "tech", label: "Technology" },
   ];
@@ -423,7 +427,7 @@ function ProjectModal({ project, onClose }) {
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="w-full max-w-2xl max-h-[85vh] overflow-y-auto rounded-2xl border border-slate-800 bg-slate-900 shadow-2xl"
+        className="w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-2xl border border-slate-800 bg-slate-900 shadow-2xl"
       >
         <div
           className={`p-6 border-b border-slate-800 bg-gradient-to-b ${COVER_STYLES[project.cover]}`}
@@ -462,12 +466,15 @@ function ProjectModal({ project, onClose }) {
           </div>
         </div>
 
-        <div className="flex border-b border-slate-800 px-6">
+        <div className="flex border-b border-slate-800 px-6 overflow-x-auto">
           {tabs.map((t) => (
             <button
               key={t.id}
-              onClick={() => setTab(t.id)}
-              className={`px-4 py-3 text-sm font-medium border-b-2 -mb-px transition-colors ${
+              onClick={() => {
+                setTab(t.id);
+                if (t.id === "preview") setIsLoading(true);
+              }}
+              className={`px-4 py-3 text-sm font-medium border-b-2 -mb-px transition-colors whitespace-nowrap ${
                 tab === t.id
                   ? "border-amber-400 text-amber-400"
                   : "border-transparent text-slate-500 hover:text-slate-300"
@@ -488,16 +495,50 @@ function ProjectModal({ project, onClose }) {
                 <span className="text-xs text-slate-500 font-mono">
                   Live preview / demo
                 </span>
-                <a
-                  href="#"
-                  onClick={(e) => e.preventDefault()}
+                <button
+                  onClick={() => setTab("preview")}
                   className="inline-flex items-center gap-1.5 text-xs font-medium text-amber-400 hover:text-amber-300"
                 >
-                  View demo <ExternalLink size={13} />
-                </a>
+                  Open preview <ExternalLink size={13} />
+                </button>
               </div>
             </div>
           )}
+          
+          {tab === "preview" && (
+            <div className="relative">
+              {isLoading && (
+                <div className="absolute inset-0 flex items-center justify-center bg-slate-900/80 rounded-xl z-10">
+                  <div className="flex flex-col items-center gap-4">
+                    <div className="w-8 h-8 border-2 border-amber-400 border-t-transparent rounded-full animate-spin" />
+                    <span className="text-sm text-slate-400">Loading preview...</span>
+                  </div>
+                </div>
+              )}
+              <div className="rounded-xl border border-slate-800 overflow-hidden bg-slate-950">
+                <div className="bg-slate-800/50 px-4 py-2 flex items-center justify-between border-b border-slate-700">
+                  <span className="text-xs text-slate-400 font-mono">Live Demo</span>
+                  <a
+                    href={project.demoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs text-amber-400 hover:text-amber-300 flex items-center gap-1"
+                  >
+                    Open in new tab <ExternalLink size={12} />
+                  </a>
+                </div>
+                <iframe
+                  src={project.demoUrl}
+                  className="w-full h-[500px]"
+                  title={`${project.title} Demo`}
+                  onLoad={() => setIsLoading(false)}
+                  sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          )}
+          
           {tab === "problem" && (
             <div className="space-y-4">
               <div>
