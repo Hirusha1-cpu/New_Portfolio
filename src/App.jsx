@@ -23,12 +23,12 @@ import {
 
 const PROFILE = {
   name: "Hirusha Fernando",
-  role: "Blockchain Developer",
+  role: "Blockchain & Web3 Developer",
   tagline:
-    "I design and ship smart contracts and Web3 infrastructure — from protocol logic to production-grade security.",
+    "I build secure smart contracts and decentralized protocols from protocol architecture to production-ready deployment.",
   location: "Colombo, Sri Lanka",
-  email: "hello@yourdomain.dev",
-  wallet: "0x8f3a...b21c",
+  email: "hirushafernando121@gmail.com",
+  wallet: "0xf0121285BD30078997B47f11c670538db7800501",
   social: {
     github: "https://github.com/Hirusha1-cpu",
     linkedin: "https://linkedin.com/in/hirusha-fernando-15020b1ab",
@@ -37,102 +37,128 @@ const PROFILE = {
 };
 
 const STATS = [
-  { label: "Years building on-chain", value: "4+" },
-  { label: "Smart contracts shipped", value: "30+" },
-  { label: "Total value secured", value: "$12M+" },
-  { label: "Audits passed", value: "9" },
+  { label: "Years in Software Engineering", value: "2+" },
+  { label: "Web3 Projects Built", value: "4+" },
+  { label: "Smart Contracts Developed", value: "25+" },
+  { label: "Test Coverage", value: "95%+" },
 ];
 
 const SKILLS = [
   {
-    group: "Languages",
+    group: "Smart Contract Development",
     icon: Cpu,
-    items: ["Solidity", "Rust", "Go", "TypeScript"],
+    items: [
+      "Solidity",
+      "OpenZeppelin",
+      "Foundry",
+      "Hardhat",
+    ],
   },
   {
-    group: "Chains & Runtimes",
+    group: "Blockchain",
     icon: Blocks,
-    items: ["Ethereum", "Polygon", "Solana", "Arbitrum", "Base"],
+    items: [
+      "Ethereum",
+      "Sepolia Testnet",
+      "Chainlink Oracles",
+      "ERC-20",
+    ],
   },
   {
-    group: "Tooling",
+    group: "Web3 Development",
     icon: Layers,
-    items: ["Foundry", "Hardhat", "Ethers.js", "The Graph", "IPFS"],
+    items: [
+      "Ethers.js",
+      "Web3.js",
+      "MetaMask",
+      "React",
+    ],
   },
   {
-    group: "Security",
+    group: "Security & Testing",
     icon: ShieldCheck,
-    items: ["Slither", "Echidna", "Formal Verification", "Gas Optimization"],
+    items: [
+      "Slither",
+      "Reentrancy Protection",
+      "Access Control",
+      "CEI Pattern",
+    ],
   },
 ];
 
 const PROJECTS = [
   {
     id: "0001",
-    title: "LendChain Protocol",
-    tagline: "Over-collateralized lending with dynamic interest curves",
+    title: "Decentralized Lending Protocol",
+    tagline: "Collateralized lending powered by Chainlink price oracles",
     cover: "amber",
     overview:
-      "A decentralized lending protocol that lets users deposit crypto as collateral and borrow stablecoins against it. Interest rates adjust automatically based on real-time pool utilization, and every position can be monitored on a live dashboard.",
+      "A decentralized lending protocol that allows users to deposit WETH as collateral, borrow USDC, repay loans, and monitor their health factor in real time.",
     problem:
-      "Most lending protocols use static interest rates, which either sit idle when demand is low or starve borrowers when demand spikes. Liquidity providers had no way to earn competitive yield without taking on unpredictable risk during volatile markets.",
+      "Traditional lending systems require trusted intermediaries and lack transparent collateral management. DeFi protocols require secure, real-time collateral valuation and automated liquidation mechanisms.",
     solution:
-      "I built a utilization-based interest rate model in Solidity that rebalances every block, paired with a liquidation engine that keeps the protocol solvent even during sharp price swings. A subgraph indexes every position for the front-end dashboard.",
-    tech: ["Solidity", "Foundry", "Chainlink Oracles", "The Graph", "React"],
+      "Built a Solidity-based lending protocol using Chainlink price feeds for reliable collateral valuation, implemented health factor calculations, automated liquidations, and a React dashboard for deposit, borrow, repay, and liquidation flows.",
+    tech: [
+      "Solidity",
+      "Hardhat",
+      "Chainlink",
+      "OpenZeppelin",
+      "React",
+      "Ethers.js",
+    ],
     stats: [
-      { label: "TVL at peak", value: "$4.2M" },
-      { label: "Liquidations handled", value: "180+" },
+      { label: "Collateral Asset", value: "WETH" },
+      { label: "Borrow Asset", value: "USDC" },
     ],
   },
+
   {
     id: "0002",
-    title: "Provenance NFT Market",
-    tagline: "An NFT marketplace that enforces creator royalties on-chain",
+    title: "Decentralized Escrow Protocol",
+    tagline: "Milestone-based escrow with decentralized dispute resolution",
     cover: "teal",
     overview:
-      "A marketplace for digital art where royalty payments to the original creator are enforced at the smart-contract level, not just requested by front-end etiquette. Includes lazy minting so artists list work without paying upfront gas.",
+      "A decentralized escrow protocol enabling secure milestone-based payments between clients and freelancers without requiring a trusted intermediary.",
     problem:
-      "Standard NFT marketplaces rely on royalties being honored voluntarily by whichever platform a piece is resold on. Once artists lost that revenue, they lost trust in the entire secondary market.",
+      "Freelancers and clients often face payment disputes due to centralized escrow services and limited transparency during payment releases.",
     solution:
-      "I implemented the ERC-2981 royalty standard directly inside a custom exchange contract, so royalty transfer is a condition of the trade itself, not an optional front-end fee. Escrow logic and lazy-minted listings reduced onboarding gas costs by 90%.",
-    tech: ["Solidity", "ERC-2981", "Hardhat", "IPFS", "Next.js"],
+      "Designed a milestone-based escrow protocol with arbitration, secure fund management, reentrancy protection, access control, and extensive Foundry tests achieving over 95% smart contract test coverage.",
+    tech: [
+      "Solidity",
+      "Foundry",
+      "Hardhat",
+      "OpenZeppelin",
+      "React",
+      "Ethers.js",
+    ],
     stats: [
-      { label: "Royalties enforced", value: "100%" },
-      { label: "Onboarding gas saved", value: "90%" },
+      { label: "Test Coverage", value: "95%+" },
+      { label: "Network", value: "Ethereum Sepolia" },
     ],
   },
+
   {
     id: "0003",
-    title: "Meridian Bridge",
-    tagline: "A trust-minimized bridge between Ethereum and Solana",
+    title: "Cross-Border Payment & Escrow System",
+    tagline: "Blockchain-powered cross-border settlement using USDC",
     cover: "amber",
     overview:
-      "Cross-chain infrastructure that lets assets move between Ethereum and Solana without relying on a single custodian. Validators independently attest to deposits before assets are released on the destination chain.",
+      "A blockchain payment and escrow platform supporting secure USDC settlements with multi-currency payout routing through Chainlink price oracles.",
     problem:
-      "Most cross-chain bridges concentrate risk in a small multisig or a single relayer — a single point of failure that's been the cause of some of the largest hacks in crypto history.",
+      "Cross-border payments are often slow, expensive, and dependent on multiple intermediaries for settlement and currency conversion.",
     solution:
-      "I designed a multi-validator attestation scheme with a configurable signature threshold, so no single party can mint or release funds alone. Rust programs handle the Solana side, while Solidity contracts manage locking and minting on Ethereum.",
-    tech: ["Rust", "Solidity", "Anchor", "Wormhole SDK", "Go"],
-    stats: [
-      { label: "Assets bridged", value: "$2.8M" },
-      { label: "Validator nodes", value: "7" },
+      "Developed an L1 escrow and L2 payment processor architecture with Solidity smart contracts, Chainlink price feeds, wallet integration, transaction history, and comprehensive Hardhat testing.",
+    tech: [
+      "Solidity",
+      "Hardhat",
+      "Chainlink",
+      "OpenZeppelin",
+      "Next.js",
+      "Ethers.js",
     ],
-  },
-  {
-    id: "0004",
-    title: "Quorum DAO Toolkit",
-    tagline: "Governance infrastructure for on-chain organizations",
-    cover: "teal",
-    overview:
-      "An open governance toolkit that any DAO can deploy to manage proposals, voting, and treasury execution. Includes delegated voting, quadratic vote weighting, and a timelock for executed proposals.",
-    problem:
-      "Small DAOs kept rebuilding the same governance logic from scratch, often skipping safety features like timelocks — leaving treasuries exposed to a single malicious or rushed proposal.",
-    solution:
-      "I built a modular governance framework on top of OpenZeppelin's Governor contracts, adding quadratic vote weighting and a mandatory timelock on any treasury-moving proposal. Six DAOs have deployed it as-is.",
-    tech: ["Solidity", "OpenZeppelin Governor", "Foundry", "TypeScript"],
     stats: [
-      { label: "DAOs using the toolkit", value: "6" },
-      { label: "Proposals executed", value: "140+" },
+      { label: "Settlement Token", value: "USDC" },
+      { label: "Supported Currencies", value: "4" },
     ],
   },
 ];
@@ -670,19 +696,10 @@ export default function App() {
               </h2>
               <div className="space-y-4 text-slate-300 leading-relaxed mb-12 max-w-2xl">
                 <p>
-                  I'm a blockchain developer focused on smart-contract
-                  engineering and Web3 infrastructure. My work sits at the layer
-                  where a bug isn't just a bug — it's real money, so I write
-                  code the way I'd want it written if I were the one with funds
-                  at stake.
+                  I'm a blockchain developer specializing in smart contract engineering and decentralized application development. I build secure, production-ready protocols with a strong focus on smart contract security, protocol design, and on-chain financial systems.
                 </p>
                 <p>
-                  Over the last four years I've shipped lending protocols, NFT
-                  marketplaces, cross-chain bridges, and DAO tooling — taking
-                  each one from a whiteboard idea through audits to mainnet. I
-                  care as much about gas efficiency and test coverage as I do
-                  about the product actually being useful to the people who show
-                  up on day one.
+                  My experience includes developing decentralized escrow systems, collateralized lending protocols, and blockchain-based payment solutions using Solidity, Foundry, Hardhat, and OpenZeppelin. I prioritize security, comprehensive testing, and clean architecture to deliver reliable Web3 applications that are built for real-world use.
                 </p>
               </div>
 
