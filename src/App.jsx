@@ -168,7 +168,7 @@ const PROJECTS = [
     id: "0004",
     title: "Ceylon Pearl (CPRL) Token System",
     tagline: "ERC20 token with staking, vesting, and Uniswap V3 liquidity",
-    cover: "amber",
+    cover: "teal",
     overview:
       "A production-style ERC20 token ecosystem featuring role-based minting, gasless EIP-2612 approvals, linear vesting for team allocations, checkpoint-based staking rewards, and a live Uniswap V3 trading pool.",
     problem:
@@ -220,7 +220,8 @@ function Avatar({ size = 128 }) {
   if (!broken) {
     return (
       <img
-        src="/profile.jpg"
+        // src="/profile.jpg"
+        src="/profile1.png"
         alt={PROFILE.name}
         onError={() => setBroken(true)}
         className="shrink-0 rounded-2xl border border-slate-700 object-cover"
