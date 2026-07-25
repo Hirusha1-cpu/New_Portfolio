@@ -164,6 +164,32 @@ const PROJECTS = [
     ],
     demoUrl: "https://cross-border-payments-ten.vercel.app/",
   },
+  {
+    id: "0004",
+    title: "Ceylon Pearl (CPRL) Token System",
+    tagline: "ERC20 token with staking, vesting, and Uniswap V3 liquidity",
+    cover: "amber",
+    overview:
+      "A production-style ERC20 token ecosystem featuring role-based minting, gasless EIP-2612 approvals, linear vesting for team allocations, checkpoint-based staking rewards, and a live Uniswap V3 trading pool.",
+    problem:
+      "Token launches often bundle minting, vesting, and staking into a single contract with a single owner key, creating centralization risk, and rarely expose a working end-to-end interface for buying, staking, and vesting in one place.",
+    solution:
+      "Built a capped, pausable ERC20 token with AccessControl role separation (admin/minter/pauser), a Synthetix-style reward-per-token staking contract, a cliff-and-linear vesting contract following the checks-effects-interactions pattern, and a Next.js + wagmi frontend integrated directly with a live Uniswap V3 CPRL/WETH pool for on-chain swaps.",
+    tech: [
+      "Solidity",
+      "Foundry",
+      "OpenZeppelin",
+      "Uniswap V3",
+      "Next.js",
+      "wagmi",
+      "viem",
+    ],
+    stats: [
+      { label: "Max Supply", value: "10M CPRL" },
+      { label: "Network", value: "Ethereum Sepolia" },
+    ],
+    demoUrl: "https://ceylon-pearl-coin-erc-20-orcin.vercel.app/",
+  },
 ];
 const NAV = [
   { id: "home", label: "Home", index: "01" },
