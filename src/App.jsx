@@ -47,32 +47,17 @@ const SKILLS = [
   {
     group: "Smart Contract Development",
     icon: Cpu,
-    items: [
-      "Solidity",
-      "OpenZeppelin",
-      "Foundry",
-      "Hardhat",
-    ],
+    items: ["Solidity", "OpenZeppelin", "Foundry", "Hardhat"],
   },
   {
     group: "Blockchain",
     icon: Blocks,
-    items: [
-      "Ethereum",
-      "Sepolia Testnet",
-      "Chainlink Oracles",
-      "ERC-20",
-    ],
+    items: ["Ethereum", "Sepolia Testnet", "Chainlink Oracles", "ERC-20"],
   },
   {
     group: "Web3 Development",
     icon: Layers,
-    items: [
-      "Ethers.js",
-      "Web3.js",
-      "MetaMask",
-      "React",
-    ],
+    items: ["Ethers.js", "Web3.js", "MetaMask", "React"],
   },
   {
     group: "Security & Testing",
@@ -88,7 +73,7 @@ const SKILLS = [
 
 const PROJECTS = [
   {
-    id: "0001",
+    id: "0003",
     title: "Decentralized Lending Protocol",
     tagline: "Collateralized lending powered by Chainlink price oracles",
     cover: "amber",
@@ -114,7 +99,7 @@ const PROJECTS = [
   },
 
   {
-    id: "0002",
+    id: "0004",
     title: "Decentralized Escrow Protocol",
     tagline: "Milestone-based escrow with decentralized dispute resolution",
     cover: "teal",
@@ -140,7 +125,7 @@ const PROJECTS = [
   },
 
   {
-    id: "0003",
+    id: "0005",
     title: "Cross-Border Payment & Escrow System",
     tagline: "Blockchain-powered cross-border settlement using USDC",
     cover: "amber",
@@ -165,7 +150,7 @@ const PROJECTS = [
     demoUrl: "https://cross-border-payments-ten.vercel.app/",
   },
   {
-    id: "0004",
+    id: "0006",
     title: "Ceylon Pearl (CPRL) Token System",
     tagline: "ERC20 token with staking, vesting, and Uniswap V3 liquidity",
     cover: "teal",
@@ -190,6 +175,65 @@ const PROJECTS = [
     ],
     demoUrl: "https://ceylon-pearl-coin-erc-20-orcin.vercel.app/",
   },
+  {
+    id: "0002",
+    title: "SaaS Billing & Invoicing Platform",
+    tagline:
+      "Multi-tenant invoicing platform with Stripe payments and AI-powered insights",
+    cover: "amber",
+    overview:
+      "A production-grade multi-tenant SaaS billing platform that handles invoice creation, customer management, subscription billing, Stripe payment processing, and AI-driven financial insights with complete audit logging.",
+    problem:
+      "Small businesses and freelancers lack affordable, self-hosted invoicing tools that support multi-tenancy, automated payment reminders, subscription billing, and AI-powered financial analysis without vendor lock-in.",
+    solution:
+      "Built a Laravel 13 + React 19 SaaS platform with strict multi-tenant data isolation, Stripe Checkout integration, automated overdue reminders, subscription billing engine, role-based access control (Admin/Accountant/Viewer), comprehensive audit logging, and Gemini-powered AI insights for invoice parsing and financial summaries.",
+    tech: [
+      "Laravel 13",
+      "React 19",
+      "MySQL",
+      "Stripe",
+      "Sanctum",
+      "Tailwind CSS",
+      "Gemini AI",
+      "Vite",
+    ],
+    stats: [
+      { label: "Payment Gateway", value: "Stripe" },
+      { label: "Roles Supported", value: "3" },
+    ],
+    demoUrl: "https://saa-s-billing-platform-gamma.vercel.app/",
+  },
+  {
+    id: "0001",
+    title: "Route Optimization & Fleet Tracking API",
+    tagline:
+      "AI-powered route planning with real-time GPS tracking and COD reconciliation",
+    cover: "amber",
+    overview:
+      "A delivery route-planning and fleet tracking system that generates optimized routes using OSRM routing engine and nearest-neighbor heuristic, tracks drivers in real-time via WebSocket broadcasting, and manages Cash-on-Delivery (COD) with an append-only ledger and automated daily reconciliation.",
+    problem:
+      "Small delivery businesses plan routes manually, leading to fuel waste, missed delivery time windows, and manual cash reconciliation errors. They need an affordable, self-hosted solution for route optimization, delivery visibility, driver accountability, and cash tracking.",
+    solution:
+      "Built a Laravel 13 + React 19 API with OSRM-powered route optimization, AI-generated route summaries via Gemini, multi-tenant data isolation, real-time GPS tracking with Pusher WebSocket broadcasting, an append-only COD ledger with immutable audit logs, automated daily reconciliation, and a delivery status state machine with failed-delivery re-queuing.",
+    tech: [
+      "Laravel 13",
+      "React 19",
+      "MySQL",
+      "Pusher",
+      "Laravel Echo",
+      "OSRM",
+      "Gemini AI",
+      "Sanctum",
+      "Tailwind CSS",
+      "Vite",
+    ],
+    stats: [
+      { label: "Routing Engine", value: "OSRM" },
+      { label: "Real-time", value: "Pusher WebSocket" },
+    ],
+    demoUrl: "https://route-optimization-api-olive.vercel.app/dashboard",
+  },
+
 ];
 const NAV = [
   { id: "home", label: "Home", index: "01" },
@@ -531,20 +575,24 @@ function ProjectModal({ project, onClose }) {
               </div>
             </div>
           )}
-          
+
           {tab === "preview" && (
             <div className="relative">
               {isLoading && (
                 <div className="absolute inset-0 flex items-center justify-center bg-slate-900/80 rounded-xl z-10">
                   <div className="flex flex-col items-center gap-4">
                     <div className="w-8 h-8 border-2 border-amber-400 border-t-transparent rounded-full animate-spin" />
-                    <span className="text-sm text-slate-400">Loading preview...</span>
+                    <span className="text-sm text-slate-400">
+                      Loading preview...
+                    </span>
                   </div>
                 </div>
               )}
               <div className="rounded-xl border border-slate-800 overflow-hidden bg-slate-950">
                 <div className="bg-slate-800/50 px-4 py-2 flex items-center justify-between border-b border-slate-700">
-                  <span className="text-xs text-slate-400 font-mono">Live Demo</span>
+                  <span className="text-xs text-slate-400 font-mono">
+                    Live Demo
+                  </span>
                   <a
                     href={project.demoUrl}
                     target="_blank"
@@ -565,7 +613,7 @@ function ProjectModal({ project, onClose }) {
               </div>
             </div>
           )}
-          
+
           {tab === "problem" && (
             <div className="space-y-4">
               <div>
@@ -658,98 +706,109 @@ export default function App() {
         <main className="lg:pl-40 pt-20 lg:pt-0">
           {/* ---------------- HOME ---------------- */}
           <section
-  id="home"
-  ref={registerRef("home")}
-  className="min-h-screen flex items-center px-6 lg:px-16 py-24"
->
-  <div className="max-w-6xl mx-auto lg:mx-0 w-full">
-    <div className="flex items-center gap-2 mb-8 font-mono text-xs text-slate-500">
-      <span className="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulseGlow" />
-      Available for new contracts
-    </div>
-
-    <div className="flex flex-col-reverse lg:flex-row items-center gap-12 mb-10">
-      {/* Left side - Text content */}
-      <div className="flex-1">
-        <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-semibold text-slate-50 leading-tight mb-4">
-          {PROFILE.name}
-        </h1>
-        <p className="font-mono text-amber-400 text-sm tracking-wide mb-1">
-          {PROFILE.role}
-        </p>
-        <p className="text-slate-500 text-sm mb-6">
-          {PROFILE.location}
-        </p>
-
-        <p className="text-lg text-slate-300 leading-relaxed max-w-xl mb-10">
-          {PROFILE.tagline}
-        </p>
-
-        <div className="flex flex-wrap items-center gap-4">
-          <button
-            onClick={() => scrollTo("projects")}
-            className="inline-flex items-center gap-2 bg-amber-400 text-slate-950 font-medium text-sm px-5 py-3 rounded-xl hover:bg-amber-300 transition-colors"
+            id="home"
+            ref={registerRef("home")}
+            className="min-h-screen flex items-center px-6 lg:px-16 py-24"
           >
-            View projects <ChevronRight size={16} />
-          </button>
-          
-          {/* NEW: CV Download Button */}
-          <button
-            onClick={() => {
-              // CV එක download කරන්න
-              const link = document.createElement('a');
-              link.href = '/Hirusha Fernando Full Stack Software Engineer.pdf'; // ඔබගේ CV file එකේ path එක
-              link.download = 'Hirusha_Fernando_CV.pdf';
-              document.body.appendChild(link);
-              link.click();
-              document.body.removeChild(link);
-            }}
-            className="inline-flex items-center gap-2 border border-slate-700 text-slate-200 font-medium text-sm px-5 py-3 rounded-xl hover:border-slate-500 transition-colors"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-              <polyline points="7 10 12 15 17 10"/>
-              <line x1="12" y1="15" x2="12" y2="3"/>
-            </svg>
-            Download CV
-          </button>
-          
-          <button
-            onClick={() => scrollTo("contact")}
-            className="inline-flex items-center gap-2 border border-slate-700 text-slate-200 font-medium text-sm px-5 py-3 rounded-xl hover:border-slate-500 transition-colors"
-          >
-            Get in touch
-          </button>
-          <div className="flex items-center gap-3 ml-1">
-            <a
-              href={PROFILE.social.github}
-              className="text-slate-500 hover:text-slate-200 transition-colors"
-            >
-              <Github size={18} />
-            </a>
-            <a
-              href={PROFILE.social.linkedin}
-              className="text-slate-500 hover:text-slate-200 transition-colors"
-            >
-              <Linkedin size={18} />
-            </a>
-            <a
-              href={PROFILE.social.twitter}
-              className="text-slate-500 hover:text-slate-200 transition-colors"
-            >
-              <Twitter size={18} />
-            </a>
-          </div>
-        </div>
-      </div>
+            <div className="max-w-6xl mx-auto lg:mx-0 w-full">
+              <div className="flex items-center gap-2 mb-8 font-mono text-xs text-slate-500">
+                <span className="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulseGlow" />
+                Available for new contracts
+              </div>
 
-      {/* Right side - Large floating image */}
-      <div className="flex-shrink-0 animate-float">
-        <Avatar size={400} />
-      </div>
-    </div>
-  </div>
-</section>
+              <div className="flex flex-col-reverse lg:flex-row items-center gap-12 mb-10">
+                {/* Left side - Text content */}
+                <div className="flex-1">
+                  <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-semibold text-slate-50 leading-tight mb-4">
+                    {PROFILE.name}
+                  </h1>
+                  <p className="font-mono text-amber-400 text-sm tracking-wide mb-1">
+                    {PROFILE.role}
+                  </p>
+                  <p className="text-slate-500 text-sm mb-6">
+                    {PROFILE.location}
+                  </p>
+
+                  <p className="text-lg text-slate-300 leading-relaxed max-w-xl mb-10">
+                    {PROFILE.tagline}
+                  </p>
+
+                  <div className="flex flex-wrap items-center gap-4">
+                    <button
+                      onClick={() => scrollTo("projects")}
+                      className="inline-flex items-center gap-2 bg-amber-400 text-slate-950 font-medium text-sm px-5 py-3 rounded-xl hover:bg-amber-300 transition-colors"
+                    >
+                      View projects <ChevronRight size={16} />
+                    </button>
+
+                    {/* NEW: CV Download Button */}
+                    <button
+                      onClick={() => {
+                        // CV එක download කරන්න
+                        const link = document.createElement("a");
+                        link.href =
+                          "/Hirusha Fernando Full Stack Software Engineer.pdf"; // ඔබගේ CV file එකේ path එක
+                        link.download = "Hirusha_Fernando_CV.pdf";
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link);
+                      }}
+                      className="inline-flex items-center gap-2 border border-slate-700 text-slate-200 font-medium text-sm px-5 py-3 rounded-xl hover:border-slate-500 transition-colors"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                        <polyline points="7 10 12 15 17 10" />
+                        <line x1="12" y1="15" x2="12" y2="3" />
+                      </svg>
+                      Download CV
+                    </button>
+
+                    <button
+                      onClick={() => scrollTo("contact")}
+                      className="inline-flex items-center gap-2 border border-slate-700 text-slate-200 font-medium text-sm px-5 py-3 rounded-xl hover:border-slate-500 transition-colors"
+                    >
+                      Get in touch
+                    </button>
+                    <div className="flex items-center gap-3 ml-1">
+                      <a
+                        href={PROFILE.social.github}
+                        className="text-slate-500 hover:text-slate-200 transition-colors"
+                      >
+                        <Github size={18} />
+                      </a>
+                      <a
+                        href={PROFILE.social.linkedin}
+                        className="text-slate-500 hover:text-slate-200 transition-colors"
+                      >
+                        <Linkedin size={18} />
+                      </a>
+                      <a
+                        href={PROFILE.social.twitter}
+                        className="text-slate-500 hover:text-slate-200 transition-colors"
+                      >
+                        <Twitter size={18} />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Right side - Large floating image */}
+                <div className="flex-shrink-0 animate-float">
+                  <Avatar size={400} />
+                </div>
+              </div>
+            </div>
+          </section>
 
           {/* ---------------- ABOUT ---------------- */}
           <section
@@ -764,10 +823,19 @@ export default function App() {
               </h2>
               <div className="space-y-4 text-slate-300 leading-relaxed mb-12 max-w-2xl">
                 <p>
-                  I'm a blockchain developer specializing in smart contract engineering and decentralized application development. I build secure, production-ready protocols with a strong focus on smart contract security, protocol design, and on-chain financial systems.
+                  I'm a blockchain developer specializing in smart contract
+                  engineering and decentralized application development. I build
+                  secure, production-ready protocols with a strong focus on
+                  smart contract security, protocol design, and on-chain
+                  financial systems.
                 </p>
                 <p>
-                  My experience includes developing decentralized escrow systems, collateralized lending protocols, and blockchain-based payment solutions using Solidity, Foundry, Hardhat, and OpenZeppelin. I prioritize security, comprehensive testing, and clean architecture to deliver reliable Web3 applications that are built for real-world use.
+                  My experience includes developing decentralized escrow
+                  systems, collateralized lending protocols, and
+                  blockchain-based payment solutions using Solidity, Foundry,
+                  Hardhat, and OpenZeppelin. I prioritize security,
+                  comprehensive testing, and clean architecture to deliver
+                  reliable Web3 applications that are built for real-world use.
                 </p>
               </div>
 
