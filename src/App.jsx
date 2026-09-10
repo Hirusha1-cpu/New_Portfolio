@@ -23,9 +23,9 @@ import {
 
 const PROFILE = {
   name: "Hirusha Fernando",
-  role: "Blockchain & Web3 Developer",
+  role: "Full-Stack Software Engineer | Laravel & Web3",
   tagline:
-    "I build secure smart contracts and decentralized protocols from protocol architecture to production-ready deployment.",
+    "I build secure, production-grade systems — from multi-tenant ERP and FinTech platforms to decentralized protocols and smart contracts.",
   location: "Colombo, Sri Lanka",
   email: "hirushafernando121@gmail.com",
   wallet: "0xf0121285BD30078997B47f11c670538db7800501",
@@ -37,7 +37,7 @@ const PROFILE = {
 };
 
 const STATS = [
-  { label: "Years in Software Engineering", value: "2+" },
+  { label: "Years in Software Engineering", value: "1.5+" },
   { label: "Web3 Projects Built", value: "4+" },
   { label: "Smart Contracts Developed", value: "25+" },
   { label: "Test Coverage", value: "95%+" },
@@ -45,33 +45,102 @@ const STATS = [
 
 const SKILLS = [
   {
-    group: "Smart Contract Development",
+    group: "Backend & Core Languages",
     icon: Cpu,
-    items: ["Solidity", "OpenZeppelin", "Foundry", "Hardhat"],
+    items: ["PHP", "Laravel", "JavaScript", "SQL", "Solidity"],
   },
   {
-    group: "Blockchain",
-    icon: Blocks,
-    items: ["Ethereum", "Sepolia Testnet", "Chainlink Oracles", "ERC-20"],
-  },
-  {
-    group: "Web3 Development",
+    group: "Frontend & Frameworks",
     icon: Layers,
-    items: ["Ethers.js", "Web3.js", "MetaMask", "React"],
+    items: ["React.js", "Next.js", "Tailwind CSS", "Vite", "Ethers.js"],
   },
   {
-    group: "Security & Testing",
+    group: "Blockchain & Smart Contracts",
+    icon: Blocks,
+    items: [
+      "Solidity",
+      "Foundry",
+      "Hardhat",
+      "OpenZeppelin",
+      "Chainlink",
+      "Uniswap V3",
+      "wagmi",
+      "viem",
+    ],
+  },
+  {
+    group: "Databases & DevOps",
     icon: ShieldCheck,
     items: [
-      "Slither",
-      "Reentrancy Protection",
-      "Access Control",
-      "CEI Pattern",
+      "MySQL",
+      "PostgreSQL",
+      "MongoDB",
+      "AWS",
+      "Docker",
+      "GitHub Actions",
     ],
   },
 ];
 
 const PROJECTS = [
+  {
+    id: "0001",
+    title: "SaaS Billing & Invoicing Platform",
+    tagline:
+      "Multi-tenant invoicing platform with Stripe payments and AI-powered insights",
+    cover: "amber",
+    overview:
+      "A production-grade multi-tenant SaaS billing platform that handles invoice creation, customer management, subscription billing, Stripe payment processing, and AI-driven financial insights with complete audit logging.",
+    problem:
+      "Small businesses and freelancers lack affordable, self-hosted invoicing tools that support multi-tenancy, automated payment reminders, subscription billing, and AI-powered financial analysis without vendor lock-in.",
+    solution:
+      "Built a Laravel 13 + React 19 SaaS platform with strict multi-tenant data isolation, Stripe Checkout integration, automated overdue reminders, subscription billing engine, role-based access control (Admin/Accountant/Viewer), comprehensive audit logging, and Gemini-powered AI insights for invoice parsing and financial summaries.",
+    tech: [
+      "Laravel 13",
+      "React 19",
+      "MySQL",
+      "Stripe",
+      "Sanctum",
+      "Tailwind CSS",
+      "Gemini AI",
+      "Vite",
+    ],
+    stats: [
+      { label: "Payment Gateway", value: "Stripe" },
+      { label: "Roles Supported", value: "3" },
+    ],
+    demoUrl: "https://saa-s-billing-platform-gamma.vercel.app/",
+  },
+  {
+    id: "0002",
+    title: "Route Optimization & Fleet Tracking API",
+    tagline:
+      "AI-powered route planning with real-time GPS tracking and COD reconciliation",
+    cover: "amber",
+    overview:
+      "A delivery route-planning and fleet tracking system that generates optimized routes using OSRM routing engine and nearest-neighbor heuristic, tracks drivers in real-time via WebSocket broadcasting, and manages Cash-on-Delivery (COD) with an append-only ledger and automated daily reconciliation.",
+    problem:
+      "Small delivery businesses plan routes manually, leading to fuel waste, missed delivery time windows, and manual cash reconciliation errors. They need an affordable, self-hosted solution for route optimization, delivery visibility, driver accountability, and cash tracking.",
+    solution:
+      "Built a Laravel 13 + React 19 API with OSRM-powered route optimization, AI-generated route summaries via Gemini, multi-tenant data isolation, real-time GPS tracking with Pusher WebSocket broadcasting, an append-only COD ledger with immutable audit logs, automated daily reconciliation, and a delivery status state machine with failed-delivery re-queuing.",
+    tech: [
+      "Laravel 13",
+      "React 19",
+      "MySQL",
+      "Pusher",
+      "Laravel Echo",
+      "OSRM",
+      "Gemini AI",
+      "Sanctum",
+      "Tailwind CSS",
+      "Vite",
+    ],
+    stats: [
+      { label: "Routing Engine", value: "OSRM" },
+      { label: "Real-time", value: "Pusher WebSocket" },
+    ],
+    demoUrl: "https://route-optimization-api-olive.vercel.app/dashboard",
+  },
   {
     id: "0003",
     title: "Decentralized Lending Protocol",
@@ -97,7 +166,6 @@ const PROJECTS = [
     ],
     demoUrl: "https://decentralised-lending-protocol.vercel.app/",
   },
-
   {
     id: "0004",
     title: "Decentralized Escrow Protocol",
@@ -123,7 +191,6 @@ const PROJECTS = [
     ],
     demoUrl: "https://decentralised-milestone-payment-sys-sigma.vercel.app/",
   },
-
   {
     id: "0005",
     title: "Cross-Border Payment & Escrow System",
@@ -175,66 +242,8 @@ const PROJECTS = [
     ],
     demoUrl: "https://ceylon-pearl-coin-erc-20-orcin.vercel.app/",
   },
-  {
-    id: "0002",
-    title: "SaaS Billing & Invoicing Platform",
-    tagline:
-      "Multi-tenant invoicing platform with Stripe payments and AI-powered insights",
-    cover: "amber",
-    overview:
-      "A production-grade multi-tenant SaaS billing platform that handles invoice creation, customer management, subscription billing, Stripe payment processing, and AI-driven financial insights with complete audit logging.",
-    problem:
-      "Small businesses and freelancers lack affordable, self-hosted invoicing tools that support multi-tenancy, automated payment reminders, subscription billing, and AI-powered financial analysis without vendor lock-in.",
-    solution:
-      "Built a Laravel 13 + React 19 SaaS platform with strict multi-tenant data isolation, Stripe Checkout integration, automated overdue reminders, subscription billing engine, role-based access control (Admin/Accountant/Viewer), comprehensive audit logging, and Gemini-powered AI insights for invoice parsing and financial summaries.",
-    tech: [
-      "Laravel 13",
-      "React 19",
-      "MySQL",
-      "Stripe",
-      "Sanctum",
-      "Tailwind CSS",
-      "Gemini AI",
-      "Vite",
-    ],
-    stats: [
-      { label: "Payment Gateway", value: "Stripe" },
-      { label: "Roles Supported", value: "3" },
-    ],
-    demoUrl: "https://saa-s-billing-platform-gamma.vercel.app/",
-  },
-  {
-    id: "0001",
-    title: "Route Optimization & Fleet Tracking API",
-    tagline:
-      "AI-powered route planning with real-time GPS tracking and COD reconciliation",
-    cover: "amber",
-    overview:
-      "A delivery route-planning and fleet tracking system that generates optimized routes using OSRM routing engine and nearest-neighbor heuristic, tracks drivers in real-time via WebSocket broadcasting, and manages Cash-on-Delivery (COD) with an append-only ledger and automated daily reconciliation.",
-    problem:
-      "Small delivery businesses plan routes manually, leading to fuel waste, missed delivery time windows, and manual cash reconciliation errors. They need an affordable, self-hosted solution for route optimization, delivery visibility, driver accountability, and cash tracking.",
-    solution:
-      "Built a Laravel 13 + React 19 API with OSRM-powered route optimization, AI-generated route summaries via Gemini, multi-tenant data isolation, real-time GPS tracking with Pusher WebSocket broadcasting, an append-only COD ledger with immutable audit logs, automated daily reconciliation, and a delivery status state machine with failed-delivery re-queuing.",
-    tech: [
-      "Laravel 13",
-      "React 19",
-      "MySQL",
-      "Pusher",
-      "Laravel Echo",
-      "OSRM",
-      "Gemini AI",
-      "Sanctum",
-      "Tailwind CSS",
-      "Vite",
-    ],
-    stats: [
-      { label: "Routing Engine", value: "OSRM" },
-      { label: "Real-time", value: "Pusher WebSocket" },
-    ],
-    demoUrl: "https://route-optimization-api-olive.vercel.app/dashboard",
-  },
-
 ];
+
 const NAV = [
   { id: "home", label: "Home", index: "01" },
   { id: "about", label: "About", index: "02" },
@@ -257,14 +266,11 @@ const COVER_TEXT = {
 /* -------------------------------------------------------------------- */
 
 function Avatar({ size = 128 }) {
-  // Put your photo at public/profile.jpg (or .png) — this reads it from there.
-  // If the file is missing, it automatically falls back to the node graphic below.
   const [broken, setBroken] = useState(false);
 
   if (!broken) {
     return (
       <img
-        // src="/profile.jpg"
         src="/profile1.png"
         alt={PROFILE.name}
         onError={() => setBroken(true)}
@@ -350,7 +356,6 @@ function CopyableAddress({ value }) {
 function ChainNav({ active, onNavigate, mobileOpen, setMobileOpen }) {
   return (
     <>
-      {/* Desktop: fixed vertical chain on the left */}
       <nav className="hidden lg:flex flex-col fixed left-8 top-1/2 -translate-y-1/2 z-40">
         <div className="relative flex flex-col items-start">
           <span className="absolute left-[15px] top-4 bottom-4 w-px bg-slate-800" />
@@ -392,7 +397,6 @@ function ChainNav({ active, onNavigate, mobileOpen, setMobileOpen }) {
         </div>
       </nav>
 
-      {/* Mobile: fixed top bar */}
       <div className="lg:hidden fixed top-0 inset-x-0 z-40 bg-slate-950/90 backdrop-blur border-b border-slate-800">
         <div className="flex items-center justify-between px-5 py-4">
           <span className="font-display font-semibold text-slate-100 text-sm tracking-wide">
@@ -692,7 +696,6 @@ export default function App() {
     <div className="min-h-screen bg-slate-950 text-slate-200 font-sans selection:bg-amber-400/30 relative">
       <BlockchainBackground />
 
-      {/* subtle vignette so text stays readable over the 3D network */}
       <div className="fixed inset-0 z-0 bg-gradient-to-b from-slate-950/40 via-slate-950/70 to-slate-950/90 pointer-events-none" />
 
       <div className="relative z-10">
@@ -717,7 +720,6 @@ export default function App() {
               </div>
 
               <div className="flex flex-col-reverse lg:flex-row items-center gap-12 mb-10">
-                {/* Left side - Text content */}
                 <div className="flex-1">
                   <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-semibold text-slate-50 leading-tight mb-4">
                     {PROFILE.name}
@@ -741,13 +743,11 @@ export default function App() {
                       View projects <ChevronRight size={16} />
                     </button>
 
-                    {/* NEW: CV Download Button */}
                     <button
                       onClick={() => {
-                        // CV එක download කරන්න
                         const link = document.createElement("a");
                         link.href =
-                          "/Hirusha Fernando Full Stack Software Engineer.pdf"; // ඔබගේ CV file එකේ path එක
+                          "/Hirusha Fernando Full Stack Software Engineer.pdf";
                         link.download = "Hirusha_Fernando_CV.pdf";
                         document.body.appendChild(link);
                         link.click();
@@ -762,9 +762,9 @@ export default function App() {
                         viewBox="0 0 24 24"
                         fill="none"
                         stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       >
                         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
                         <polyline points="7 10 12 15 17 10" />
@@ -802,7 +802,6 @@ export default function App() {
                   </div>
                 </div>
 
-                {/* Right side - Large floating image */}
                 <div className="flex-shrink-0 animate-float">
                   <Avatar size={400} />
                 </div>
@@ -823,19 +822,30 @@ export default function App() {
               </h2>
               <div className="space-y-4 text-slate-300 leading-relaxed mb-12 max-w-2xl">
                 <p>
-                  I'm a blockchain developer specializing in smart contract
-                  engineering and decentralized application development. I build
-                  secure, production-ready protocols with a strong focus on
-                  smart contract security, protocol design, and on-chain
-                  financial systems.
+                  I'm a Full-Stack Software Engineer with close to 2 years of
+                  production experience architecting scalable enterprise
+                  systems, including multi-tenant ERP and FinTech platforms,
+                  alongside hands-on Web3 engineering experience designing and
+                  deploying Solidity smart contracts for DeFi protocols,
+                  decentralized escrow systems, collateralized lending, and
+                  blockchain payment solutions.
                 </p>
                 <p>
-                  My experience includes developing decentralized escrow
-                  systems, collateralized lending protocols, and
-                  blockchain-based payment solutions using Solidity, Foundry,
-                  Hardhat, and OpenZeppelin. I prioritize security,
-                  comprehensive testing, and clean architecture to deliver
-                  reliable Web3 applications that are built for real-world use.
+                  My work spans the full stack — building secure financial
+                  workflows and backend architectures using Laravel, PHP,
+                  MySQL, and AWS, paired with smart contract security
+                  expertise in reentrancy protection, access control, and
+                  checks-effects-interactions (CEI) using Foundry, Hardhat,
+                  and OpenZeppelin. I'm experienced across the full Web3
+                  stack: token systems, staking, vesting, and DEX integrations
+                  (Uniswap V3), backed by full-stack frontends in
+                  React/Next.js.
+                </p>
+                <p>
+                  I prioritize security, comprehensive testing, and clean
+                  architecture to deliver reliable systems that are built for
+                  real-world use — from high-volume transactional environments
+                  to on-chain financial protocols.
                 </p>
               </div>
 
@@ -910,7 +920,7 @@ export default function App() {
               <SectionEyebrow index="04">Projects</SectionEyebrow>
               <div className="flex items-end justify-between mb-12 flex-wrap gap-3">
                 <h2 className="font-display text-3xl font-semibold text-slate-50">
-                  Four blocks, four problems solved
+                  Six blocks, Six problems solved
                 </h2>
                 <p className="text-sm text-slate-500 max-w-xs">
                   Tap a card to see the preview, the problem it solves, and the
